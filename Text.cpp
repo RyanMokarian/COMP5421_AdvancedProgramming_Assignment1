@@ -83,10 +83,13 @@ using std::strcpy;
  }
 
 // Assigns a C-string to this object, replacing its current contents
- void Text::assign(char* pCstr)
- {
-     setCstring (pCstr);
- }
+void Text::assign(char* pCstr) { setCstring (pCstr); }
+// Assigns a Text object to this object, replacing its current contents
+void Text::assign(const Text& txt) { this->assign(txt.getCstring());}
+
+void Text::clear() { this->assign("");}
+int Text::length() const { return strlen(this->pStore);}
+bool Text::isEmpty() const { return this->length() == 0;}
 
  // sout
  void Text::write(ostream& sout) const // const means that write cannot modify *this

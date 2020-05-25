@@ -19,14 +19,17 @@ using std::ostream;
  // -------------------------------------------------------------------
 
      const char * getCstring() const; // returns pStore as a const pointer
-
      void setCstring(char * str); // to change the string
-
      void append(const char*); // Appends a C-string to this object, extending its contents
-
      void append(const Text&); // Appends txt’s text to this object, extending its contents
-
      void assign(char*); // Assigns a C-string to this object, replacing its current contents
+     void assign(const Text &txt); // Assigns a Text object to this object, replacing its current contents
+
+     void clear();
+     int length() const;
+     bool isEmpty() const;
+
+
 
  // this facilitator method writes to the supplied output stream sout
     void write(ostream& sout) const; // const means that write cannot modify *this
